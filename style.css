@@ -1,0 +1,230 @@
+/*I studied this shit for 5 years in school and I still don’t know how to do it.*/
+
+@font-face {
+    font-family: 'ComicSans';
+    src: url('fonts/comic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'EvilSound';
+    src: url('fonts/evilsound.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'xtypewriter';
+    src: url('fonts/xtypewriter.ttf') format('truetype');
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #FFFFFF;
+    text-align: center;
+    background-color: #000000;
+    font-style: normal;
+    font-weight: 600;
+    font-size: medium;
+    background-size: cover;
+    filter: grayscale(0);
+    height: 100svh;
+} 
+#container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('media/background.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: none;
+    z-index: -1;
+  }
+#container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+button{
+    cursor:not-allowed;
+}
+.icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    -webkit-text-stroke: 0.5px black;
+    width: 10svw;
+    height: 20svh;
+}
+.icon img{
+    width: 3svw;
+    height: 3svw;
+    cursor: pointer;
+}
+.unavaible img{
+    cursor: not-allowed;
+}
+.icon-text{
+    font-size: 1svw;
+}
+#cat{
+    position: absolute;
+    top: -9svh;
+    left: -5svh;
+}
+#cat img{
+    width: 11svh;
+    height: 11svh;
+}
+#box2-header{
+    font-size: 9svh;
+    display: flex;
+    font-family: "ComicSans";
+    font-weight: 900;
+} 
+#box2-header::after {
+    content: "";
+    display: inline-block;
+    width: 13svh;
+    height: 13svh;
+    background-image: url(media/hi-hello.gif);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 1rem;
+}
+
+.main-window-h1{
+    font-family: EvilSound;
+    font-size: 7svh;
+    text-shadow: 3px 3px 10px #DC143C;
+}
+.body p{
+    font-family: xtypewriter;
+    font-size: 1svw;
+    margin: 1svw;
+}
+.body p a{
+    text-decoration: none;
+    color:white;
+    text-shadow: 3px 3px 10px #DC143C;
+}
+
+#window{
+    width: 50svw;
+    height: 70svh;
+    border-width: 1px;
+    border-color:#FFFFFF #808080 #808080 #FFFFFF;
+    border-style:solid;
+    position: relative;
+}
+#title{
+    position: relative;
+}
+div.title{
+    width: 100%;
+    height: 2.6svh;
+    background:#000080;
+    color:#FFF;
+    cursor: all-scroll;
+}
+img.title{
+    float:left;
+    width: 2.5svh;
+    height: 2.4svh;
+}
+p.title{
+    margin:2px 0 0 1px;
+    float:left;
+    font-family:Tahoma;
+    font-weight:bold;
+    font-size:1.5svh;
+}
+.title button{
+    margin:2px 2px 2px 0;
+    float:right;
+    width:2svh;
+    height:2svh;
+    background:#C0C0C0;
+    border-width:1px;
+    border-color:#FFFFFF #808080 #808080 #FFFFFF;
+    padding:0;
+    font-size:1.3svh;
+    font-weight:bold;
+    font-family:Tahoma;
+    text-align:center;
+}
+div.body{
+    width: 100%;
+    height: 67.2svh;
+    background-image: url(media/main-bg.gif);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#welcome-box{
+    height: 20svh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 10svh;
+}
+#welcome-gif{
+    height: 15svh;
+}
+
+#window2{
+    width: 25svw;
+    height: 30svh;
+    border-width: 1px;
+    border-color:#FFFFFF #808080 #808080 #FFFFFF;
+    border-style:solid;
+    position: relative;
+}
+div.body2{
+    width: 100%;
+    height: 27.2svh;
+    background-color: #ca1c87;
+}
+
+.window-small{
+    width: 100%;
+    height: 100%;
+}
+
+#box1{
+    height: 100%;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+#box2{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    flex-direction: column;
+}
+#box3{
+    height: 100%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
