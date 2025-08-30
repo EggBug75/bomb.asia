@@ -74,7 +74,7 @@ button{
     cursor: not-allowed;
 }
 .icon-text{
-    font-size: 1svw;
+    font-size: 1rem;
 }
 #cat{
     position: absolute;
@@ -86,7 +86,7 @@ button{
     height: 11svh;
 }
 #box2-header{
-    font-size: 9svh;
+    font-size: clamp(2.5rem, 8vw, 5rem);
     display: flex;
     font-family: "ComicSans";
     font-weight: 900;
@@ -104,13 +104,13 @@ button{
 
 .main-window-h1{
     font-family: EvilSound;
-    font-size: 7svh;
+    font-size: 3rem;
     text-shadow: 3px 3px 10px #DC143C;
 }
 .body p{
     font-family: xtypewriter;
-    font-size: 1svw;
-    margin: 1svw;
+    font-size: 1.2rem;
+    margin: 1rem;
 }
 .body p a{
     text-decoration: none;
@@ -185,7 +185,7 @@ div.body{
     height: 15svh;
 }
 
-#window2{
+.window2{
     width: 25svw;
     height: 30svh;
     border-width: 1px;
@@ -227,4 +227,67 @@ div.body2{
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    
+    #box2 {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+        padding-top: 2rem;
+    }
+
+    #box3 {
+        display: none;
+    }
+
+    #container {
+        justify-content: space-around;
+    }
+
+    #window {
+        width: 70svw; 
+        height: 50svh;
+        margin-top: 15vh;
+    }
+    #window .body {
+        height: 100%;
+    }
+
+    .main-window-h1 {
+        font-size: 1.5rem;
+    }
+
+    #welcome-box {
+        padding-right: 10px;
+    }
+
+    #welcome-gif {
+        height: 12svh; 
+    }
+
+    #box2-header {
+        font-size: 2rem;
+    }
+
+    #box2-header::after {
+        width: 10svh;
+        height: 10svh;
+    }
+
+    #cat {
+        top: -6svh;
+        left: -4svh;
+    }
+    #cat img {
+        width: 8svh;
+        height: 8svh;
+    }
+
+    .icon img {
+        width: 2rem;
+        height: 2rem;
+    }
 }
