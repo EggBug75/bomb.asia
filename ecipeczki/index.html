@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jedyny Taki Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section id="page-1" class="page page-background">
+        <div class="content-wrapper">
+            <h1>Czy jesteś gotowy odwiedzić jedyny taki portal randkowy?</h1>
+            <div class="button-container">
+                <button id="btn-yes-1">Tak</button>
+                <button id="btn-no-1">Nie</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="page-2" class="page page-background hidden">
+        <div class="content-wrapper">
+            <h1>W jakiej roli Twoja nowa kochanka najlepiej się odnajdzie?</h1>
+            <div class="button-container-vertical">
+                <button class="btn-option">Cwel</button>
+                <button class="btn-option">Pedał</button>
+                <button class="btn-option">Stara uległa pedalska kurwa</button>
+                <button class="btn-option">Szmata do jebania</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="page-3" class="page hidden">
+        <div class="content-wrapper">
+            <h1>Teraz nasz algorytm musi dokładnie dobrać użytkowników na podstawie Twoich preferencji.</h1>
+            <div class="progress-container">
+                <div class="progress-bar-wrapper">
+                    <div id="bar" class="progress-bar-inner"></div>
+                </div>
+                <p id="info-progressbar">Czekanie na rozpoczęcie wyszukiwania...</p>
+            </div>
+            <button id="btn-search">Wyszukaj</button>
+        </div>
+    </section>
+
+    <section id="page-4" class="page hidden">
+         <div class="content-wrapper">
+            <h1>Dostałeś wiadomość od użytkownika 'Zbyszek Kucharski'! Czy chcesz odtworzyć wideo?</h1>
+            <div class="button-container">
+                <button id="btn-yes-2">Tak</button>
+                <button id="btn-no-2">Nie</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="page-5" class="page hidden">
+        <div class="content-wrapper">
+            <h1>Wiadomość wideo od 'Zbyszek Kucharski'!</h1>
+            <div class="video-container">
+                <video id="video-1" src="video/zbyszek.mp4" autoplay loop playsinline></video>
+            </div>
+            <button id="btn-goto-chat">Przejdź do rozmowy</button>
+        </div>
+    </section>
+
+    <div id="fullscreen-video-container" class="hidden">
+        <video id="video-2" src="video/main.mp4" controls></video>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
