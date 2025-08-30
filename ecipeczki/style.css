@@ -80,7 +80,7 @@ button:hover {
 }
 
 .btn-option {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid #f79500;
     width: 100%;
     max-width: 350px;
@@ -158,3 +158,4 @@ button:hover {
     opacity: 0;
     pointer-events: none;
 }
+
