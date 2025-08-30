@@ -1,0 +1,159 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.page-background {
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(img/zbyszek1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.content-wrapper {
+    max-width: 600px;
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.button-container-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #e60073;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.2s;
+    min-width: 150px;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: #ff0084;
+}
+
+.btn-option {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #e60073;
+    width: 100%;
+    max-width: 350px;
+}
+
+.btn-option:hover {
+    background-color: rgba(230, 0, 115, 0.5);
+}
+
+.progress-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+.progress-bar-wrapper {
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 30px;
+    border: 1px solid #444;
+}
+
+.progress-bar-inner {
+    width: 0;
+    height: 100%;
+    background-color: #e60073;
+    border-radius: 10px;
+    transition: width 1s ease-out;
+}
+
+#info-progressbar {
+    margin-top: 15px;
+    font-size: 1rem;
+    min-height: 24px;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 9 / 16;
+    margin: 20px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(230, 0, 115, 0.5);
+}
+
+#video-1 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#fullscreen-video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#video-2 {
+    width: 100%;
+    height: 100%;
+}
+
+.hidden {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}
