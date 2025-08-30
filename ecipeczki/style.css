@@ -7,7 +7,7 @@
 body, html {
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212;
+    background-color: #000000;
     color: #ffffff;
     overflow: hidden;
 }
@@ -27,7 +27,7 @@ body, html {
 }
 
 .page-background {
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(img/zbyszek1.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(img/zbyszek1.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -45,7 +45,7 @@ body, html {
 h1 {
     font-size: 2.5rem;
     margin-bottom: 30px;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.9);
 }
 
 .button-container {
@@ -67,8 +67,8 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 8px;
-    background-color: #e60073;
-    color: white;
+    background-color: #f79500;
+    color: #1a1a1a;
     font-weight: bold;
     transition: transform 0.2s, background-color 0.2s;
     min-width: 150px;
@@ -76,18 +76,19 @@ button {
 
 button:hover {
     transform: scale(1.05);
-    background-color: #ff0084;
+    background-color: #ffaa33;
 }
 
 .btn-option {
     background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid #e60073;
+    border: 1px solid #f79500;
     width: 100%;
     max-width: 350px;
 }
 
 .btn-option:hover {
-    background-color: rgba(230, 0, 115, 0.5);
+    background-color: rgba(247, 149, 0, 0.4);
+    color: #1a1a1a;
 }
 
 .progress-container {
@@ -97,17 +98,17 @@ button:hover {
 }
 
 .progress-bar-wrapper {
-    background-color: #333;
+    background-color: #333333;
     border-radius: 10px;
     overflow: hidden;
     height: 30px;
-    border: 1px solid #444;
+    border: 1px solid #555555;
 }
 
 .progress-bar-inner {
     width: 0;
     height: 100%;
-    background-color: #e60073;
+    background-color: #f79500;
     border-radius: 10px;
     transition: width 1s ease-out;
 }
@@ -125,7 +126,7 @@ button:hover {
     margin: 20px auto;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 0 20px rgba(230, 0, 115, 0.5);
+    box-shadow: 0 0 25px rgba(247, 149, 0, 0.8);
 }
 
 #video-1 {
