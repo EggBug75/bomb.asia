@@ -395,13 +395,16 @@ function App() {
                 <FaDiscord />
               </motion.a>
 
-              <motion.div 
+              <motion.button 
                 variants={iconVariants} 
                 layout 
-                onMouseEnter={() => setSteamHovered(true)}
-                onMouseLeave={() => setSteamHovered(false)}
-                onClick={() => setSteamHovered(!steamHovered)}
-                className="flex items-center justify-center overflow-hidden h-[48px] min-w-[48px] cursor-pointer"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSteamHovered(!steamHovered);
+                }}
+                onMouseEnter={() => window.innerWidth > 768 && setSteamHovered(true)}
+                onMouseLeave={() => window.innerWidth > 768 && setSteamHovered(false)}
+                className="flex items-center justify-center overflow-hidden h-[48px] min-w-[48px] cursor-pointer bg-transparent border-none p-0 outline-none"
               >
                 <AnimatePresence mode="wait">
                   {!steamHovered ? (
@@ -446,7 +449,7 @@ function App() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </motion.div>
+              </motion.button>
 
             </motion.div>
 
