@@ -94,6 +94,23 @@ function TypewriterText({ text, delay, start }) {
   )
 }
 
+const ParticleSystem = () => (
+  <div className="particle-container">
+    {[...Array(20)].map((_, i) => (
+      <div 
+        key={i} 
+        className="particle" 
+        style={{ 
+          top: `${Math.random() * 100}%`, 
+          left: `${Math.random() * 100}%`,
+          animationDuration: `${Math.random() * 2 + 1}s`,
+          animationDelay: `${Math.random() * 3}s` 
+        }} 
+      />
+    ))}
+  </div>
+);
+
 function App() {
   const [entered, setEntered] = useState(false)
   const [showContent, setShowContent] = useState(false)
@@ -103,6 +120,18 @@ function App() {
   const [steamHovered, setSteamHovered] = useState(false)
 
   const audioRef = useRef(null)
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      // Jeśli kliknięto gdzieś, a steam jest otwarty, zamknij go
+      if (steamHovered) {
+        setSteamHovered(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
+  }, [steamHovered]);
 
   useEffect(() => {
     const audio = audioRef.current
@@ -316,25 +345,30 @@ function App() {
           >
 
             {/* Avatar + nick */}
-            <motion.div variants={itemVariants} layout className="flex items-center gap-7">
+            <motion.div 
+              variants={itemVariants} 
+              layout 
+              className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-4 sm:gap-7"
+            >
 
-              <div className="relative shrink-0">
+              <div className="relative shrink-0 mt-4 sm:mt-0">
                 <img
                   src="/cat.gif"
-                  className="absolute -top-9 -left-6 w-20 z-10"
+                  className="absolute -top-6 -left-4 sm:-top-9 sm:-left-6 w-16 sm:w-20 z-10"
                 />
                 <img
                   src="/avatar.jpg"
-                  className="w-36 h-36 rounded-full object-cover shadow-[0_0_50px_rgba(255,255,255,0.2)]"
+                  className="w-28 h-28 sm:w-36 sm:h-36 rounded-full object-cover shadow-[0_0_50px_rgba(255,255,255,0.2)]"
                 />
               </div>
 
-              <div>
-                <h1 className="text-5xl font-bold leading-none min-h-[48px]">
-                  <TypewriterText text="KetchupCEO" delay={400} start={showContent} />
-                </h1>
+              <div className="mt-2 sm:mt-0 flex flex-col items-center sm:items-start">
+              <h1 className="text-3xl sm:text-5xl font-bold leading-none min-h-[36px] sm:min-h-[48px] relative glow-text">
+                {/*<ParticleSystem />*/}
+                <TypewriterText text="KetchupCEO" delay={400} start={showContent} />
+              </h1>
 
-                <p className="text-base text-gray-400 mt-3 min-h-[24px]">
+                <p className="text-sm sm:text-base text-gray-400 mt-2 sm:mt-3 min-h-[40px] sm:min-h-[24px] max-w-[280px] sm:max-w-none">
                   <TypewriterText text="Unemployment Operations Manager (UOM)" delay={1000} start={showContent} />
                 </p>
               </div>
@@ -366,13 +400,13 @@ function App() {
                 layout 
                 onMouseEnter={() => setSteamHovered(true)}
                 onMouseLeave={() => setSteamHovered(false)}
-                className="flex items-center justify-center overflow-hidden h-[48px] min-w-[48px]"
+                onClick={() => setSteamHovered(!steamHovered)}
+                className="flex items-center justify-center overflow-hidden h-[48px] min-w-[48px] cursor-pointer"
               >
                 <AnimatePresence mode="wait">
                   {!steamHovered ? (
-                    <motion.a
+                    <motion.div
                       key="steam-icon"
-                      href="#"
                       initial={{ opacity: 0, scale: 0.5 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.5 }}
@@ -380,7 +414,7 @@ function App() {
                       className="hover:scale-110 transition flex items-center justify-center text-5xl"
                     >
                       <FaSteam />
-                    </motion.a>
+                    </motion.div>
                   ) : (
                     <motion.div
                       key="steam-links"
@@ -390,9 +424,25 @@ function App() {
                       transition={{ duration: 0.15 }}
                       className="flex items-center gap-4 text-3xl font-bold px-2"
                     >
-                      <a href="https://steamcommunity.com/id/ketchupceo/" target="_blank" className="hover:text-gray-400 transition hover:scale-125">1</a>
+                      <a 
+                        href="https://steamcommunity.com/id/ketchupceo/" 
+                        target="_blank" 
+                        rel="noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="hover:text-gray-400 transition hover:scale-125"
+                      >
+                        1
+                      </a>
                       <span className="text-gray-600 font-light text-2xl">/</span>
-                      <a href="https://steamcommunity.com/id/skdo/" target="_blank" className="hover:text-gray-400 transition hover:scale-125">2</a>
+                      <a 
+                        href="https://steamcommunity.com/id/skdo/" 
+                        target="_blank" 
+                        rel="noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="hover:text-gray-400 transition hover:scale-125"
+                      >
+                        2
+                      </a>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -482,6 +532,34 @@ function App() {
             z-index: 99999;
             transform: translate(-50%, -50%);
             animation: starFall 0.8s ease-out forwards;
+          }
+
+          .glow-text {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.3);
+          }
+
+          .particle-container {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+          }
+
+          .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: float infinite ease-out; 
+          }
+
+          @keyframes float {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-80px) translateX(40px); opacity: 0; } /* Dłuższy lot */
           }
 
           @keyframes starFall {
